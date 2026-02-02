@@ -15,7 +15,7 @@ create or replace file format csvformat
 -- Emails table
 CREATE OR REPLACE STAGE emails_data_stage  
   file_format = csvformat  
-  url = 's3://sfquickstarts/sfguide_getting_started_with_cortex_aisql_ja/emails/';  
+  url = 's3://sfquickstarts/sfguide_getting_started_with_cortex_ai_functions_ja/emails/';  
   
 CREATE OR REPLACE TABLE EMAILS (
 	USER_ID NUMBER(38,0),
@@ -31,7 +31,7 @@ COPY INTO EMAILS
 
 CREATE OR REPLACE STAGE sc_articles_data_stage  
   file_format = csvformat  
-  url = 's3://sfquickstarts/sfguide_getting_started_with_cortex_aisql_ja/sc_articles/';  
+  url = 's3://sfquickstarts/sfguide_getting_started_with_cortex_ai_functions_ja/sc_articles/';  
 
 CREATE OR REPLACE TABLE SOLUTION_CENTER_ARTICLES (
 	ARTICLE_ID VARCHAR(16777216),
