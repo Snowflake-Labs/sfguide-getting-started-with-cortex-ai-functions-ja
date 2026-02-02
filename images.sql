@@ -1,0 +1,16 @@
+-- PREREQUISITE: Execute statements in setup.sql
+
+USE DB_QS_CORTEX_AI_FUNCTIONS.SCHEMA_QS_CORTEX_AI_FUNCTIONS;
+USE WAREHOUSE WH_QS_CORTEX_AI_FUNCTIONS;
+  
+
+-- Image Files table
+CREATE OR REPLACE TABLE IMAGES AS
+SELECT
+    to_file(file_url) img_file, 
+    DATEADD(SECOND, UNIFORM(0, 13046400, RANDOM()),
+    TO_TIMESTAMP('2025-01-01 00:00:00')) as created_at,
+    UNIFORM(0, 200, RANDOM()) as user_id,
+    *
+FROM
+  directory(@DASH_DB.DASH_SCHEMA.DASH_IMAGE_FILES);
